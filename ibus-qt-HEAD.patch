@@ -1,0 +1,40 @@
+From 282bf68d2064972fd24de109e0280fd48c299c9c Mon Sep 17 00:00:00 2001
+From: Peng Huang <shawn.p.huang@gmail.com>
+Date: Thu, 25 Nov 2010 14:22:12 +0900
+Subject: [PATCH] Fix selected text be deleted problem.
+
+---
+ qtim/ibus-input-context.cpp |   13 ++++++++++++-
+ 1 files changed, 12 insertions(+), 1 deletions(-)
+
+diff --git a/qtim/ibus-input-context.cpp b/qtim/ibus-input-context.cpp
+index c47fce6..fdfd34a 100644
+--- a/qtim/ibus-input-context.cpp
++++ b/qtim/ibus-input-context.cpp
+@@ -722,11 +722,22 @@ IBusInputContext::displayPreeditText (const TextPointer &text, uint cursor_pos,
+ void
+ IBusInputContext::slotUpdatePreeditText (const TextPointer &text, uint cursor_pos, bool visible)
+ {
++    // set visible to false, if text is empty
++    visible = visible && !text->text ().isEmpty ();
++
++    // set cursor at end, if pos is greater than the text length
++    if (cursor_pos > (uint)text->text ().length ())
++        cursor_pos = text->text ().length ();
++
++    bool update = (m_preedit_visible != visible) || visible;
++
+     m_preedit = text;
+     m_preedit_visible = visible;
+     m_preedit_cursor_pos = cursor_pos;
+ 
+-    displayPreeditText (m_preedit, m_preedit_cursor_pos, visible);
++    if (update) {
++        displayPreeditText (m_preedit, m_preedit_cursor_pos, visible);
++    }
+ }
+ 
+ void
+-- 
+1.7.2.1
+
