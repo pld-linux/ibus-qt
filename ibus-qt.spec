@@ -1,7 +1,7 @@
 Summary:	Qt IBus library and Qt input method plugin
 Name:		ibus-qt
 Version:	1.3.1
-Release:	0.1
+Release:	1
 License:	GPL v2+
 Group:		Libraries
 Source0:	http://ibus.googlecode.com/files/%{name}-%{version}-Source.tar.gz
