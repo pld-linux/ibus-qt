@@ -1,14 +1,13 @@
 Summary:	Qt IBus library and Qt input method plugin
 Summary(pl.UTF-8):	Biblioteka Qt IBus oraz wtyczka metody wprowadzania znaków dla Qt
 Name:		ibus-qt
-Version:	1.3.1
-Release:	3
+Version:	1.3.2
+Release:	1
 License:	GPL v2+
 Group:		Libraries
 #Source0Download: http://code.google.com/p/ibus/downloads/list
 Source0:	http://ibus.googlecode.com/files/%{name}-%{version}-Source.tar.gz
-# Source0-md5:	769e8872ca8a59327b2073ce2f142589
-Patch0:		%{name}-HEAD.patch
+# Source0-md5:	e53cb59f993d0c93ba968330dbc62c22
 URL:		http://code.google.com/p/ibus/
 BuildRequires:	QtCore-devel >= 4.5
 BuildRequires:	QtDBus-devel >= 4.5
@@ -50,7 +49,6 @@ Ten pakiet zawiera pliki nagłówkowe dla biblioteki IBus Qt.
 
 %prep
 %setup -q -n %{name}-%{version}-Source
-%patch0 -p1
 
 %build
 %cmake \
