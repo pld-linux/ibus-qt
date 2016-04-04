@@ -5,7 +5,7 @@ Version:	1.3.3
 Release:	3
 License:	GPL v2+
 Group:		Libraries
-#Source0Download: http://code.google.com/p/ibus/downloads/list
+#Source0Download: https://github.com/ibus/ibus-qt/releases
 Source0:	https://github.com/ibus/ibus-qt/archive/%{version}/%{name}-%{version}.tar.gz
 # Source0-md5:	b8f441379b34bd6fca79b63a9e1c7ff5
 URL:		https://github.com/ibus/ibus-qt
